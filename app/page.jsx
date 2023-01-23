@@ -1,9 +1,7 @@
+import HomeContainer from "@/containers/home/Index";
 
 export default function Home() {
   return (
-   <div>
-    Hello World
-   </div>
+    <HomeContainer />
   )
 }
-  
