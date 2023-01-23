@@ -7,11 +7,17 @@ import { Categories } from '@/components/categories';
 import { MoviesSection } from '@/components/movies-section';
 
 
-function HomeContainer() {
+function HomeContainer({ selectedCategory }) {
   return (
     <div>
       <FeaturedMovie movie={Movies.results[0]} />
       <Categories categories={Genres.genres.slice(0, 5)} />
+      {selectedCategory.movies.length > 0 && (
+        <MoviesSection
+          title={Genres.genres.find((genre) => genre.id === Number(selectedCategory.id)).name}
+          movies={selectedCategory.movies}
+        />
+      )}
       <MoviesSection
         title={'Popular Films'}
         movies={Movies.results.slice(0, 7)}
